@@ -52,8 +52,8 @@ where F: Future<Output = Result<()>> + Send + 'static,
     })
 }
 
-//main
-fn main() -> Result<()> {
+#[async_std::main]
+async fn main() -> Result<()> {
     let fut = accept_loop("127.0.0.1:8080");
     task::block_on(fut)
 }
